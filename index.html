@@ -892,6 +892,146 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   outline:2px solid var(--persimmon);
   outline-offset:2px;
 }
+
+/* ============ SENSEI CARD (class-based) ============ */
+.sensei-card-grid{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:52px;
+  align-items:start;
+  max-width:900px;
+  margin:0 auto;
+}
+.sensei-chips-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+/* ============ GLOBAL MOBILE (≤ 600px) ============ */
+@media (max-width: 600px){
+
+  /* Sections padding */
+  section{ padding:56px 0; }
+  .overview-section, .founder-section{ padding:56px 0; }
+
+  /* Hero */
+  .hero{ padding:110px 0 50px; }
+  .hero .wrap{ grid-template-columns:1fr; gap:24px; }
+  .hero-art{ display:none; }
+  .hero h1{ font-size:2rem; }
+  .hero-actions{ flex-direction:column; }
+  .hero-actions .btn{ width:100%; justify-content:center; }
+  .hero-stats{ gap:18px; }
+
+  /* Nav */
+  .nav-links .btn{ width:100%; justify-content:center; }
+
+  /* Overview */
+  .overview-grid{ grid-template-columns:1fr; gap:28px; }
+
+  /* Founder */
+  .founder-grid{ grid-template-columns:1fr; gap:28px; }
+  .founder-portrait{
+    display:flex; align-items:center; gap:18px;
+    text-align:left;
+  }
+  .founder-portrait .portrait-circle{
+    width:100px; height:100px; flex-shrink:0; margin:0;
+  }
+
+  /* Sensei card */
+  .sensei-card-grid{ grid-template-columns:1fr; gap:28px; }
+  .sensei-chips-grid{ grid-template-columns:1fr; }
+
+  /* Welcome */
+  .welcome{ grid-template-columns:1fr; text-align:center; }
+  .welcome-art{ display:none; }
+
+  /* Branch cards */
+  .branch-grid{ grid-template-columns:1fr; }
+
+  /* Schedule table — horizontal scroll */
+  .schedule-table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .schedule-table{ min-width:460px; }
+
+  /* Class cards */
+  .class-grid{ grid-template-columns:1fr; }
+
+  /* Steps */
+  .steps{ grid-template-columns:1fr; gap:20px; }
+
+  /* Kun list */
+  .kun-item{ grid-template-columns:44px 1fr; gap:12px; }
+  .kun-num{ font-size:1.6rem; }
+
+  /* Contact grid */
+  .contact-grid{ grid-template-columns:1fr; }
+
+  /* Map grid */
+  .map-grid{ grid-template-columns:1fr; }
+  .map-item iframe{ height:180px; }
+
+  /* Form */
+  .form{ padding:22px 16px; }
+  .form button{ width:100%; justify-content:center; }
+
+  /* Footer */
+  .footer-grid{ grid-template-columns:1fr; gap:24px; }
+  .footer-bottom{ flex-direction:column; gap:6px; text-align:center; }
+
+  /* Experience wall */
+  #expWall{ grid-template-columns:1fr !important; }
+
+  /* Belt key */
+  .belt-key{ display:none; }
+
+  /* Quote grid */
+  .quote-grid{ grid-template-columns:1fr; }
+
+  /* Section head */
+  .section-head{ padding:0 8px; }
+  .lead{ font-size:0.95rem; }
+}
+
+/* ============ TABLET (601px – 860px) ============ */
+@media (min-width:601px) and (max-width:860px){
+
+  section{ padding:70px 0; }
+
+  /* Hero */
+  .hero .wrap{ grid-template-columns:1fr; gap:28px; }
+  .hero-art{ max-width:220px; margin:0 auto; }
+
+  /* Overview & Founder */
+  .overview-grid{ grid-template-columns:1fr; gap:32px; }
+  .founder-grid{ grid-template-columns:160px 1fr; gap:28px; }
+
+  /* Sensei card */
+  .sensei-card-grid{ grid-template-columns:200px 1fr; gap:28px; }
+
+  /* Branch cards */
+  .branch-grid{ grid-template-columns:1fr; }
+
+  /* Map */
+  .map-grid{ grid-template-columns:1fr 1fr; }
+
+  /* Footer */
+  .footer-grid{ grid-template-columns:1fr 1fr; gap:28px; }
+
+  /* Class / step grids */
+  .class-grid{ grid-template-columns:1fr 1fr; }
+  .steps{ grid-template-columns:1fr 1fr; }
+}
+
+/* Touch-friendly tap targets */
+@media (hover: none){
+  .btn{ min-height:48px; }
+  .nav-links a{ padding:8px 0; }
+  .form input,
+  .form textarea,
+  .form select{ font-size:16px; } /* prevents iOS zoom on focus */
+}
 </style>
 </head>
 <body>
@@ -1091,7 +1231,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <p class="eyebrow">Your Instructor</p>
       <h2>Sensei Sultan S. Khan</h2>
     </div>
-    <div class="reveal" style="display:grid; grid-template-columns:260px 1fr; gap:52px; align-items:start; max-width:900px; margin:0 auto;">
+    <div class="reveal sensei-card-grid">
 
       <!-- Photo Card -->
       <div style="text-align:center;">
@@ -1120,7 +1260,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <p style="color:var(--ink-soft); margin-bottom:24px;">Whether you're four years old and trying on a gi for the first time, or forty and looking for a new challenge, you'll be greeted the same way: with a bow, a smile, and a place in the line. We train hard, we laugh often, and we celebrate every stripe and belt as a family.</p>
 
         <!-- Detail chips -->
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div class="sensei-chips-grid">
           <div style="background:var(--bg-soft); border:1px solid var(--line); border-radius:12px; padding:14px 16px;">
             <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:4px;">Rank</p>
             <p style="font-weight:700; color:var(--ink); font-size:0.95rem;">3rd Dan Black Belt, IJKA</p>
